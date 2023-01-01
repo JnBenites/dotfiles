@@ -1,0 +1,16 @@
+#!/bin/sh
+#install apps basic
+apt install bspwm sxhkd tilix lightdm rofi pcmanfm flameshot brightnessctl polybar wget lxappearance compton i3lock-fancy -y
+
+#audio utils
+apt install pulseaudio alsa-utils -y
+
+#Install wifi drives
+apt install firmware-realtek firmware-atheros -y
+
+#Install google_chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y ./google*.deb
+
+#desktop
+apt install xorg -y

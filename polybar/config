@@ -1,0 +1,181 @@
+[colors]
+background =  #000000 
+background-alt = #000020
+foreground = #000000  
+foreground-alt = #EBEDEF
+primary = #FFFFD0
+secondary = #9B59B6
+third = #F4ECF7
+quarter = #2980B9
+alert = #DC7633
+alert-alt = #FF0000
+
+[bar/main]
+;monitor = ${env:MONITOR:HDMI-1}
+
+modules-left = rofi code tilix browser bspwm battery eth1
+modules-center = time_date
+modules-right = wlan pulseaudio cpu memory powermenu
+
+width = 100%
+height = 16
+radius = 0
+fixed-center = true
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground-alt}
+
+border-size = 2
+border-color = ${colors.background}
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = "Hack Nerd Font:pixelsize=11:antialilas=true"
+font-1 = "truetype:pixelsize=18"
+;_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- left
+[module/rofi]
+type = custom/text
+content = "  \"
+content-foreground = ${colors.alert}
+click-left = rofi -show window
+click-right = rofi -show run
+
+[module/code]
+type = custom/text
+content = " \"
+content-foreground = ${colors.secondary}
+click-left = code
+
+[module/tilix]
+type = custom/text
+content = " \"
+content-foreground = ${colors.secondary}
+click-left = code
+
+[module/browser]
+type = custom/text
+content = "爵 \"
+content-foreground = ${colors.secondary}
+click-left = google-chrome-stable
+click-right = microsoft-edge-stable https://play.geforcenow.com/
+
+[module/eth]
+type = internal/network
+interface = wlp1s0
+interval = 10
+
+label-connected  = "/  %local_ip% /"
+label-disconnected = "/  /"
+
+label-connected-foreground = ${colors.primary}
+label-disconnected-foreground = ${colors.alert}
+
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused =  %index% 
+label-focused-background = ${colors.background-alt}
+label-focused-foreground = #27AE60
+label-focused-padding = 0
+
+label-occupied =  %index% 
+label-occupied-foreground = #2980B9
+label-occupied-padding = 0
+
+label-urgent =  %index% 
+label-urgent-foreground = #BF616A
+label-urgent-padding = 0
+
+label-empty = "."
+label-empty-foreground = #34495E
+label-empty-padding = 0
+
+label-separator = ""
+;_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- center
+
+[module/time_date]
+type = internal/date
+interval = 10
+
+date-alt = "%a, %e %b %Y"
+time = "%H:%M" 
+
+label =  %time% %date%
+label-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+label-full = %percentage%%
+format-full = 﫰 <label-full>
+
+label-charging = %percentage%%
+format-charging = ﮣ <label-charging>
+
+label-discharging =  ﮤ %percentage%%
+format-discharging = <label-discharging>
+;_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- right
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 5
+
+label-connected = / 直
+label-disconnected = / 睊
+#label-connected-alt = / %essid%
+format-connected-foreground = ${colors.quarter}
+format-format-disconnected = ${colors.alert-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "/ 龍 "
+label = %percentage:2%%
+format-foreground = ${colors.alert}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "/ ﬙ "
+label = %percentage_used%%
+format-foreground = ${colors.secondary}
+
+[module/pulseaudio]
+type = internal/pulseaudio 
+label-volume = /  %percentage%%
+label-muted = "/     "
+label-volume-foreground = ${colors.secondary}
+label-muted-foreground = ${colors.alert-alt}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 0
+
+label-open = "/ 襤 " 
+label-close = "/  "
+label-separator = "/"
+
+label-open-foreground = ${colors.alert-alt}
+label-close-foreground = ${colors.alert-alt}
+label-separator-foreground = ${colors.secondary}
+
+menu-0-0 = "  "
+menu-0-0-exec = systemctl reboot
+menu-0-1 = " 鈴 "
+menu-0-1-exec = systemctl suspend
+menu-0-2 = " 襤 "
+menu-0-2-exec = systemctl poweroff
+menu-0-3 = "  "
+menu-0-3-exec = kill -9 -1
