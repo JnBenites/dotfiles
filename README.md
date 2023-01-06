@@ -45,7 +45,7 @@ sudo ./install_dependencies.exe
 - Copy the configuration files
 
 ```
-chmod +x ./apps_install.sh
+chmod +x ./clone_config.sh
 ```
 ```
 ./apps_install.sh
