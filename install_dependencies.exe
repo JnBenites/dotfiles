@@ -1,6 +1,6 @@
 #!/bin/sh
 #install apps basic
-apt install bspwm sxhkd tilix lightdm rofi pcmanfm flameshot brightnessctl polybar wget lxappearance compton i3lock-fancy -y
+apt install bspwm sxhkd tilix lightdm rofi pcmanfm flameshot brightnessctl polybar wget lxappearance compton i3lock-fancy feh -y
 
 #audio utils
 apt install pulseaudio alsa-utils -y
