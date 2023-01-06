@@ -48,7 +48,7 @@ sudo ./install_dependencies.exe
 chmod +x ./clone_config.sh
 ```
 ```
-./apps_install.sh
+./clone_config.sh
 ```
 - Reboot
 
