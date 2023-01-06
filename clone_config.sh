@@ -18,9 +18,12 @@ mkdir  $HOME/.config/polybar
 mkdir  $HOME/.config/polybar/scripts
 cp ./polybar/config $HOME/.config/polybar/
 cp ./polybar/launch.sh $HOME/.config/polybar/
-cp ./polybar/scripts/rofi-wifi-menu.sh
+cp ./polybar/scripts/rofi-wifi-menu.sh $HOME/.config/polybar/scripts/rofi-wifi-menu.sh
 chmod +x $HOME/.config/polybar/launch.sh
 chmod +x $HOME/.config/polybar/scripts/rofi-wifi-menu.sh
+
+# feh wallpaper
+cp ./bspwm/wallpaper.png $HOME/.config/bspwm/wallpaper.png
 
 # flameshot
 mkdir $HOME/.screenshot
